@@ -10,19 +10,20 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import com.udacity.gradle.jokes.Joker;
+
 
 public class MainActivity extends AppCompatActivity {
 
     TextView textView;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         textView = (TextView) findViewById(R.id.instructions_text_view);
-
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manish Nema is this all was needed?"));
-
+        context = this;
     }
 
 
@@ -48,12 +49,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*public void tellJoke(View view) {
+    public void tellJoke(View view) {
 
-        Joker myJoker = new Joker();
-        textView.setText(myJoker.getJoke());
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
-    }*/
+        //Joker myJoker = new Joker();
+       // textView.setText(myJoker.getJoke());
+      //  Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "Manish Nema, "));
+    }
 
 
 }
